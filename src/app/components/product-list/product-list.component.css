@@ -1,0 +1,12 @@
+img{
+    height: 200px;
+}
+.description{
+   height: 100px;
+    overflow-y: scroll; /* Add vertical scrollbar */
+
+}
+.card-body {
+    
+    height: 400px
+}

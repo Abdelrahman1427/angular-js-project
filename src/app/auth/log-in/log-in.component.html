@@ -1,0 +1,31 @@
+<div id="container">
+    <form #loginForm="ngForm" (ngSubmit)="submit(loginForm.value)" class="login_form text-center mt-5">
+        <div>
+            <h5>Email Address</h5>
+            <input required type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$" ngModel
+                #email="ngModel" />
+            <div *ngIf="email.touched">
+                <p *ngIf="email.errors?.['required']" class="text-danger">
+                    Email is required!
+                </p>
+
+                <p *ngIf="email.errors?.['pattern']" class="text-danger">
+                    Invalid email
+                </p>
+            </div>
+        </div>
+
+        <div>
+            <h5>Password</h5>
+            <input type="password" required name="password" ngModel #password="ngModel" />
+            <div *ngIf="password.touched">
+                <p *ngIf="password.errors?.['required']" class="text-danger">
+                    Password is required!
+                </p>
+            </div>
+        </div>
+        <button [disabled]="password.errors?.['required'] || email.errors?.['required']" class="btu btu-primary  mt-3">
+            Login
+        </button>
+    </form>
+</div>

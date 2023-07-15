@@ -1,0 +1,60 @@
+<div class="parent-div">
+    <div class="container">
+        <form [formGroup]="registerForm" (ngSubmit)="submit(registerForm.value)"
+            class="register_form text-center mt-5 ">
+            <div>
+                <h6>Name</h6>
+                <input type="text" name="name" formControlName="name" />
+                <div *ngIf="
+              registerFormControl['name'].touched &&
+              registerFormControl['name'].invalid
+            ">
+                    <p class="text-danger">Please enter your name</p>
+                </div>
+            </div>
+            <div>
+                <h6>Email</h6>
+                <input type="text" name="email" formControlName="email" />
+                <div *ngIf="
+              registerFormControl['email'].touched &&
+              registerFormControl['email'].invalid
+            ">
+                    <p class="text-danger">Please enter your Email</p>
+                </div>
+            </div>
+            <div>
+                <h6>Username</h6>
+                <input type="text" name="username" formControlName="username" />
+                <div *ngIf="
+              registerFormControl['username'].touched &&
+              registerFormControl['username'].invalid
+            ">
+                    <p class="text-danger">Please enter your username</p>
+                </div>
+            </div>
+            <div>
+                <h6>Password</h6>
+                <input type="password" name="passsword" formControlName="passsword" #password />
+                <div *ngIf="
+              registerFormControl['passsword'].touched &&
+              registerFormControl['passsword'].invalid
+            ">
+                    <p class="text-danger">Please enter your password</p>
+                </div>
+            </div>
+            <div>
+                <h6>Confirm Password</h6>
+                <input type="password" name="confirmPassword" formControlName="confirmPassword" #confirmPassword />
+                <div *ngIf="
+              registerFormControl['confirmPassword'].touched &&
+              (registerFormControl['confirmPassword'].invalid ||
+                password.value !== confirmPassword.value)
+            ">
+                    <p class="text-danger">Passwords don't match</p>
+                </div>
+            </div>
+            <button class="btu btu-primary  mt-3">Register</button>
+        </form>
+
+    </div>
+</div>
